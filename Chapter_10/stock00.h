@@ -12,7 +12,7 @@ private:
     long shares;
     double share_val;
     double total_val;
-    void set_tot();
+    void set_tot();// 设置为内联函数
 public:
     void acquire(const std::string & co, long n, double pr);
     void buy(long num, double price);

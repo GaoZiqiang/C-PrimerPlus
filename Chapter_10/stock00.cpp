@@ -3,9 +3,9 @@
 #include <iostream>
 #include "stock00.h"
 
+// 内联函数
 inline void Stock::set_tot()
 {
-    std::cout << "使用内置函数set_tot()" << std::endl;
     total_val = shares * share_val;
 };
 
