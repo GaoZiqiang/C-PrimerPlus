@@ -5,7 +5,7 @@
 
 int main()
 {
-    Stock fluffy_the_cat;
+    Stock fluffy_the_cat;// 创建对象但未初始化
     fluffy_the_cat.acquire("NanoSmart", 20, 12.50);
     fluffy_the_cat.show();
     fluffy_the_cat.buy(15, 18.125);

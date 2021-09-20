@@ -7,13 +7,14 @@
 
 class Stock  // class declaration
 {
-private: 
-    std::string company;
-    long shares;
-    double share_val;
+private:
     double total_val;
     void set_tot();// 设置为内联函数
 public:
+    std::string company;
+    long shares;
+    double share_val;
+
     void acquire(const std::string & co, long n, double pr);
     void buy(long num, double price);
     void sell(long num, double price);

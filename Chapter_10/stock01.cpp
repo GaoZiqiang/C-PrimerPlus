@@ -1,20 +1,13 @@
-// stock00.cpp -- implementing the Stock class
-// version 00
+// stock01.cpp -- revised show() method
 #include <iostream>
-#include "stock00.h"// 使用双引号--编译器将在源文件所在目录中搜索.h文件
-
-// 内联函数
-inline void Stock::set_tot()
-{
-    total_val = shares * share_val;
-};
+#include "stock00.h"
 
 void Stock::acquire(const std::string & co, long n, double pr)
 {
     company = co;
     if (n < 0)
     {
-        std::cout << "Number of shares can't be negative; "
+        std::cerr << "Number of shares can't be negative; "
                   << company << " shares set to 0.\n";
         shares = 0;
     }
@@ -28,7 +21,7 @@ void Stock::buy(long num, double price)
 {
      if (num < 0)
     {
-        std::cout << "Number of shares purchased can't be negative. "
+        std::cerr << "Number of shares purchased can't be negative. "
              << "Transaction is aborted.\n";
     }
     else
@@ -41,15 +34,15 @@ void Stock::buy(long num, double price)
 
 void Stock::sell(long num, double price)
 {
-    using std::cout;
+    using std::cerr;
     if (num < 0)
     {
-        cout << "Number of shares sold can't be negative. "
+        cerr << "Number of shares sold can't be negative. "
              << "Transaction is aborted.\n";
     }
     else if (num > shares)
     {
-        cout << "You can't sell more than you have! "
+        cerr << "You can't sell more than you have! "
              << "Transaction is aborted.\n";
     }
     else
@@ -68,8 +61,20 @@ void Stock::update(double price)
 
 void Stock::show()
 {
-    std::cout << "Company: " << company
-              << "  Shares: " << shares << '\n'
-              << "  Share Price: $" << share_val
-              << "  Total Worth: $" << total_val << '\n';
+    using std::cout;
+    using std::ios_base;
+    // set format to #.###
+    ios_base::fmtflags orig = cout.setf(ios_base::fixed); 
+    int prec = cout.precision(3);
+
+    cout << "Company: " << company
+        << "  Shares: " << shares << '\n';
+    cout << "  Share Price: $" << share_val;
+    // set format to *.**
+    cout.precision(2);
+    cout << "  Total Worth: $" << total_val << '\n';
+
+    // restore original format
+    cout.setf(orig, ios_base::floatfield);
+    cout.precision(prec);
 }
