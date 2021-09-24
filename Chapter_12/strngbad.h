@@ -16,6 +16,7 @@ public:
     StringBad();               // default constructor
     ~StringBad();              // destructor
 // friend function
+    // 重载运算符<<
     friend std::ostream & operator<<(std::ostream & os, 
                        const StringBad & st);
 };

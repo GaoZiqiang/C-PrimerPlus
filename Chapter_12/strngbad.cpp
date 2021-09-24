@@ -26,6 +26,7 @@ StringBad::StringBad(const char * s)
          << "\" object created\n";    // For Your Information
 }
 
+// 默认构造函数
 StringBad::StringBad()                // default constructor
 {
     len = 4;
@@ -44,6 +45,7 @@ StringBad::~StringBad()               // necessary destructor
     delete [] str;                    // required
 }
 
+// 重载运算符<<
 std::ostream & operator<<(std::ostream & os, const StringBad & st)
 {
     os << st.str;
