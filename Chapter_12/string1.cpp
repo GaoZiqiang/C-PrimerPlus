@@ -26,6 +26,7 @@ String::String(const char * s)     // construct String from C string
          << "\" 显式构造函数--default object created\n";  // FYI
 }
 
+// 默认构造函数
 String::String()                   // default constructor
 {
     len = 4;
@@ -70,7 +71,7 @@ String & String::operator=(const String & st)
     len = st.len;
     str = new char[len + 1];
     std::strcpy(str, st.str);
-    return *this;
+    return *this;// 返回对象引用
 }
 
     // assign a C string to a String

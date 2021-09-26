@@ -42,7 +42,7 @@ int main()
         for (i = 1; i < total; i++)
         {
             if (sayings[i].length() < sayings[shortest].length())
-                shortest = i;
+                shortest = i;// 更新shortest索引
             if (sayings[i] < sayings[first])
                 first = i;
         }
