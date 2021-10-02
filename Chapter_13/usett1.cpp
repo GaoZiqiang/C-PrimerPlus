@@ -8,6 +8,7 @@ int main ( void )
     using std::endl;
     TableTennisPlayer player1("Tara", "Boomdea", false);
     RatedPlayer rplayer1(1140, "Mallory", "Duck", true);
+    // 派生类使用基类方法
     rplayer1.Name();          // derived object uses base method
     if (rplayer1.HasTable())
         cout << ": has a table.\n";
@@ -28,5 +29,11 @@ int main ( void )
     rplayer2.Name();
     cout << "; Rating: " << rplayer2.Rating() << endl;
     // std::cin.get();
+
+    // 基类指针可以在不进行显式类型转换的情况下指向派生类对象
+    TableTennisPlayer *pt = & rplayer1;
+    cout << "*pt:";
+    pt->Name();
+    
     return 0;
 }
