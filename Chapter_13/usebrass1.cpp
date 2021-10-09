@@ -1,7 +1,7 @@
 // usebrass1.cpp -- testing bank account classes
 // compile with brass.cpp
 #include <iostream>
-#include "brass.h"
+#include "brass2.h"
 
 int main()
 {
